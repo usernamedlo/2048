@@ -27,7 +27,7 @@ function Grid(props) {
     const newGrid = [...currentGrid];
 
     // Assignation de la valeur 2 à la position aléatoire dans la grille
-    newGrid[rowIndex][cellIndex] = 2;
+    newGrid[rowIndex][cellIndex] = Math.random() < 0.5 ? 2 : 4;
 
     // Mise à jour de l'état de la grille
     setCurrentGrid(newGrid);
@@ -45,7 +45,8 @@ function Grid(props) {
             {row.map((cell, cellIndex) => {
               return (
                 <div className="grid-cell" key={cellIndex}>
-                  {cell !== 0 ? cell : ""} {/* Affiche le nombre si la cellule n'est pas vide */}
+                  {cell !== 0 ? cell : ""}{" "}
+                  {/* Affiche le nombre si la cellule n'est pas vide */}
                 </div>
               );
             })}
