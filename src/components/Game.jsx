@@ -10,6 +10,8 @@ function Game() {
     [0, 0, 0, 0],
   ]);
 
+  const [score, setScore] = useState(0); // Initialisation de l'état du score
+
   const [currentGrid, setCurrentGrid] = useState(grid); // Initialisation de l'état de la grille
 
   // Fonction pour générer une nouvelle cellule aléatoire dans la grille
@@ -41,6 +43,11 @@ function Game() {
     setCurrentGrid(newGrid);
   };
 
+  // Fonction pour calculer le score et mettre à jour l'état du score
+  const calculateScore = (mergedValue) => {
+    setScore(score + mergedValue);
+  };
+
   // Ajouter des écouteurs d'événements de touche de direction pour déplacer les cellules dans la grille
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -52,7 +59,7 @@ function Game() {
         moveCells("left");
       } else if (event.key === "ArrowRight") {
         moveCells("right");
-      } else{
+      } else {
         return;
       }
       generateNewCell();
@@ -175,6 +182,7 @@ function Game() {
   return (
     <div>
       <h1>2048</h1>
+      <div>Score: {score}</div> {/* Affichage du score */}
       <Grid grid={grid} />
     </div>
   );

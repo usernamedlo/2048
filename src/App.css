@@ -39,6 +39,7 @@
   height: 100%;
   border: 1px solid black;
   font-size: 2rem;
+  transition: all 0.2s ease-in-out;
 }
 
 h1{
@@ -55,3 +56,5 @@ h1{
   height: 100%;
   z-index: -1;
 }
+
+/*ANIMATION*/

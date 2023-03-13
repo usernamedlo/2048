@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 function Grid(props) {
   const { grid } = props; // Récupération de la propriété grid
   const [currentGrid, setCurrentGrid] = useState(grid); // Initialisation de l'état de la grille
-
+ 
   // Fonction pour générer une nouvelle cellule aléatoire dans la grille
   const generateNewCell = () => {
     const emptyCells = []; // Tableau pour stocker les positions des cellules vides
@@ -38,22 +38,22 @@ function Grid(props) {
   }, []);
 
   return (
-    <div className="grid-container">
-      {currentGrid.map((row, rowIndex) => {
-        return (
-          <div className="grid-row" key={rowIndex}>
-            {row.map((cell, cellIndex) => {
-              return (
-                <div className="grid-cell" key={cellIndex}>
-                  {cell !== 0 ? cell : ""}{" "}
-                  {/* Affiche le nombre si la cellule n'est pas vide */}
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
-    </div>
+      <div className="grid-container">
+        {currentGrid.map((row, rowIndex) => {
+          return (
+            <div className="grid-row" key={rowIndex}>
+              {row.map((cell, cellIndex) => {
+                return (
+                  <div className="grid-cell" key={cellIndex}>
+                    {cell !== 0 ? cell : ""}{" "}
+                    {/* Affiche le nombre si la cellule n'est pas vide */}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
   );
 }
 
